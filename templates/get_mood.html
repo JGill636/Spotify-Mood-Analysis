@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='get_mood.css')}}">  
+    <title>Get Mood</title>
+</head>
+<body class="gradient-background">
+
+    <div class="container">
+        <header class="text-center mt-5" style="margin-top: 12px;">
+            <h1 class="display-4 font-weight-bold no-wrap" style="text-align: center; margin-bottom: 0px;">We got a mood for you!</h1>
+        </header>
+
+        <main class="text-center mt-4">
+            <p style="font-size: 18px;">Your overall mood is <strong>{{common_mood}}</strong></p>
+            <a href="{{ url_for('getTracks') }}" class="btn btn-primary btn-lg">Back to Home</a>
+        </main>
+
+        <p style="font-size: 18px; text-align: center; margin-top: 20px; margin-bottom: 5px;">Here is your song breakdown:</p>
+
+        <div class="search-container">
+            <div class="input-group mb-2">
+                <input type="text" id="songSearch" class="form-control" placeholder="Search for a song...">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="searchButton">Search</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Song Image</th>
+                        <th scope="col">Song Name</th>
+                        <th scope="col">Artist</th>
+                        <th scope="col">Mood</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for song in song_data %}
+                    <tr>
+                        <td><img src="{{ song.image }}" alt="{{ song.name }}" width="100"></td>
+                        <td>{{ song.name }}</td>
+                        <td>{{ song.artist }}</td>
+                        <td>{{ song.mood }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        // Function to filter table rows based on song name
+        function filterTable() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("songSearch");
+            filter = input.value.toUpperCase();
+            table = document.querySelector(".table");
+            tr = table.getElementsByTagName("tr");
+    
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1]; // Index 1 corresponds to the Song Name column
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    
+        // Attach the filterTable function to the search button click event
+        document.getElementById("searchButton").addEventListener("click", filterTable);
+    
+        // Listen for input changes in the search input field
+        document.getElementById("songSearch").addEventListener("input", filterTable);
+    </script>
+    
+</body>
+</html>

@@ -5,10 +5,8 @@ requires = {
     'spotipy',
     'requests',
     'requests_html',
-    'beautifulsoup4',
     'youtube_dl',
     'pathlib',
-    'pandas'
 }
 
 setup(

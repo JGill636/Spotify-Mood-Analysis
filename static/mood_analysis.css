@@ -1,0 +1,71 @@
+/* mood_analysis.css */
+.gradient-background {
+    background: linear-gradient(to bottom, #a8e063, #56ab2f);
+    height: 100vh;
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
+
+
+.background {
+    background-color: #f0f8ff; 
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.display-4 {
+    color: #333; 
+}
+
+.btn-primary {
+    background-color: #007bff; 
+    border-color: #007bff; 
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; 
+}
+
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-top: 150px;
+}
+
+.dropdown-toggle::after {
+    display: none; 
+}
+
+.dropdown-menu {
+    position: absolute;
+    right: 0;
+    left: auto;
+    top: 100%; /* Position the dropdown below the button */
+    background-color: #ffffff; 
+    border: 1px solid #ccc;
+    border-radius: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-menu a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    padding: 8px 16px;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown-wide {
+    min-width: 500px;
+    text-align: left;
+}

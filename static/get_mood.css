@@ -1,0 +1,72 @@
+/* get_mood.css */
+.gradient-background {
+    background: linear-gradient(to bottom, #a8e063, #56ab2f);
+    height: 100vh;
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
+
+.mt-5 {
+    margin-top: 16px !important; /* Using !important to ensure style takes precedence */
+}
+
+.mt-4 {
+    margin-top: 12px !important; 
+}
+
+.btn-outline-secondary {
+    background-color: #007bff;
+    color: white; 
+}
+
+.background {
+    background-color: #f0f8ff;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+.search-container {
+    max-width: 600px;
+}
+
+.display-4 {
+    color: #333;
+}
+
+.btn-primary {
+    background-color: #007bff; 
+    border-color: #007bff; 
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/*css for table*/
+
+/* Fix the table height and add a scroll bar */
+.table-container {
+    max-height: 400px; /* Set the maximum height of the table */
+    overflow-y: auto; 
+}
+
+.table th {
+    background-color: #007bff; /* Blue header background color */
+    color: #fff; /* Header text color */
+}
+
+.table tbody tr {
+    background-color: #fff;
+    transition: background-color 0.3s;
+}
+
+.table tbody tr:hover {
+    background-color: #f0f0f0; 
+}
+
