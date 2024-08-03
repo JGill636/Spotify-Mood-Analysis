@@ -139,9 +139,9 @@ def get_token():
 
 def create_spotify_oauth():
     return SpotifyOAuth(
-        client_id="id",
-        client_secret="secret",
-        redirect_uri=url_for('redirectPage', _external=True),
+        client_id=os.getenv("SPOTIPY_CLIENT_ID"),
+        client_secret=os.getenv("SPOTIPY_CLIENT_SECRET"),
+        redirect_uri="http://localhost:5000/redirect",
         scope="user-library-read user-read-email"
     )
 

@@ -1,22 +1,19 @@
 from setuptools import setup, find_packages
 
-requires = {
-    'flask',
+requires = [
+    'Flask',
     'spotipy',
-    'requests',
-    'requests_html',
-    'youtube_dl',
-    'pathlib',
-}
+    'python-dotenv',
+]
 
 setup(
     name='Flaskapp',
     version='1.0',
-    description='basic spotify flask app',
+    description='Basic Spotify Flask app',
     author='Jaskaran Gill',
     author_email='jaskarangill2014@gmail.com',
     keywords='web flask',
     packages=find_packages(),
     include_package_data=True,
-    install_requires=[requires]
+    install_requires=requires
 )
